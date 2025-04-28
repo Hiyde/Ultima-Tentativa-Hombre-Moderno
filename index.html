@@ -19,79 +19,8 @@
 <!-- End Meta Pixel Code -->
 </head>
 
-<style>
-body {
-  background: black;
-  color: white;
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-#player-section {
-  text-align: center;
-  margin-top: 20px;
-}
-
-#comentarios-section {
-  background: white;
-  color: black;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin: 20px;
-}
-
-#progress-bar {
-  width: 0%;
-  height: 5px;
-  background-color: #385898;
-  transition: width 0.5s ease;
-}
-#progress-container {
-  width: 100%;
-  background-color: #ccc;
-  margin-top: 10px;
-  display: none;
-  position: relative;
-}
-#progress-text {
-  position: absolute;
-  top: -20px;
-  right: 0;
-  font-size: 12px;
-  color: #333;
-}
-.comentario {
-  background: #f0f2f5;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  border-left: 4px solid #385898;
-}
-.comentario.aparecer {
-  opacity: 1;
-  transform: translateY(0);
-}
-#ver-mais {
-  background-color: #385898;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  margin-top: 10px;
-}
-#ver-mais:hover {
-  background-color: #2c4a8a;
-}
-</style>
-
-<div id="player-section">
+<body style="background: black; color: white; margin: 0; font-family: Arial, sans-serif;">
+<div id="player-section" style="text-align: center; margin-top: 20px;">
   <div id="vid_680f32bc078611988a5d6c42" style="position: relative; width: 100%; padding: 56.25% 0 0;">
     <img id="thumb_680f32bc078611988a5d6c42" src="https://images.converteai.net/77c3c791-40c3-44d2-9692-d4d9be5d2d42/players/680f32bc078611988a5d6c42/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail">
     <div id="backdrop_680f32bc078611988a5d6c42" style="-webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%;"></div>
@@ -105,17 +34,97 @@ body {
   <h2 style="margin-top: 20px;">🔊 ¡Sube el volumen para escuchar!</h2>
 </div>
 
-<div id="progress-container">
-  <div id="progress-bar"></div>
-  <div id="progress-text">Cargando... 0%</div>
+<div id="progress-container" style="width: 100%; background-color: #ccc; margin-top: 10px; display: none; position: relative;">
+  <div id="progress-bar" style="width: 0%; height: 5px; background-color: #385898; transition: width 0.5s ease;"></div>
+  <div id="progress-text" style="position: absolute; top: -20px; right: 0; font-size: 12px; color: #333;">Cargando... 0%</div>
 </div>
 
-<div id="comentarios-section">
+<div id="comentarios-section" style="background: white; color: black; padding: 20px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); margin: 20px;">
   <div id="lista-comentarios"></div>
   <div id="loading-comentarios" style="display:none;">Cargando más comentarios...</div>
-  <button id="ver-mais">Ver más comentarios</button>
+  <button id="ver-mais" style="background-color: #385898; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 14px; margin-top: 10px;">Ver más comentarios</button>
 </div>
 
 <script>
-// (todo o script aqui continua igual, sem mudar)
+const listaComentarios = document.getElementById('lista-comentarios');
+const verMais = document.getElementById('ver-mais');
+const loadingComentarios = document.getElementById('loading-comentarios');
+const progressBar = document.getElementById('progress-bar');
+const progressText = document.getElementById('progress-text');
+
+const comentariosFake = [
+  { nome: 'Alejandro Torres', mensagem: 'Este video me abrió los ojos, ¡gracias!', img: 'https://randomuser.me/api/portraits/men/1.jpg' },
+  { nome: 'Juan García', mensagem: 'Esto me pasó y no sabía cómo salir de esa situación...', img: 'https://randomuser.me/api/portraits/men/2.jpg' },
+  { nome: 'Carlos Mendoza', mensagem: 'Excelente contenido, compartido en mis grupos.', img: 'https://randomuser.me/api/portraits/men/3.jpg' },
+  { nome: 'Fernando López', mensagem: '¡Muy fuerte, necesitaba escuchar esto!', img: 'https://randomuser.me/api/portraits/men/4.jpg' },
+  { nome: 'Luis Ramírez', mensagem: 'Gracias por abrirme los ojos, hermano.', img: 'https://randomuser.me/api/portraits/men/5.jpg' },
+  { nome: 'Pedro Alvarez', mensagem: 'Nunca había visto una explicación tan clara.', img: 'https://randomuser.me/api/portraits/men/6.jpg' },
+  { nome: 'Miguel Castillo', mensagem: 'Totalmente identificado. Gracias por este material.', img: 'https://randomuser.me/api/portraits/men/7.jpg' },
+  { nome: 'Santiago Pérez', mensagem: 'Esto debería ser obligatorio para todos los hombres.', img: 'https://randomuser.me/api/portraits/men/8.jpg' },
+  { nome: 'Andrés Morales', mensagem: 'Ya compartí este video con todos mis amigos.', img: 'https://randomuser.me/api/portraits/men/9.jpg' },
+  { nome: 'Diego Fernández', mensagem: '¡Brutal! Justo lo que necesitaba.', img: 'https://randomuser.me/api/portraits/men/10.jpg' },
+];
+
+function gerarTempo() {
+  const minutos = Math.floor(Math.random() * 59) + 1;
+  return minutos + ' minutos';
+}
+
+function gerarLikes() {
+  return Math.floor(Math.random() * 50) + 1;
+}
+
+function gerarReacao() {
+  const reacoes = ['❤️', '😲'];
+  return reacoes[Math.floor(Math.random() * reacoes.length)];
+}
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+verMais.addEventListener('click', function() {
+  loadingComentarios.style.display = 'block';
+  progressBar.style.width = '0%';
+  progressText.innerText = 'Cargando... 0%';
+  document.getElementById('progress-container').style.display = 'block';
+
+  let progress = 0;
+  const progressInterval = setInterval(() => {
+    if (progress >= 100) {
+      clearInterval(progressInterval);
+    } else {
+      progress += 20;
+      progressBar.style.width = progress + '%';
+      progressText.innerText = 'Cargando... ' + progress + '%';
+    }
+  }, 200);
+
+  const comentariosEmbaralhados = shuffleArray([...comentariosFake]);
+  let carregados = 0;
+  const intervalo = setInterval(() => {
+    if (carregados >= comentariosFake.length) {
+      clearInterval(intervalo);
+      document.getElementById('progress-container').style.display = 'none';
+      loadingComentarios.style.display = 'none';
+      return;
+    }
+    const subLote = shuffleArray([...comentariosFake]).slice(0, 5);
+    subLote.forEach(comentario => {
+      const div = document.createElement('div');
+      div.classList.add('comentario');
+      div.style.borderLeft = '4px solid #385898';
+      div.innerHTML = `<img src="${comentario.img}" alt="perfil" style="border-radius:50%; width:40px; height:40px; margin-right:10px; vertical-align:middle;"> <div style="display:inline-block; vertical-align:middle;"><strong>${comentario.nome}</strong>: ${comentario.mensagem}<br><small><span style='color:#385898; cursor:pointer;'>${gerarReacao()} ${gerarLikes()}</span> - <span style='color:#385898; cursor:pointer;'>Responder</span> - Hace ${gerarTempo()}</small></div>`;
+      listaComentarios.appendChild(div);
+      setTimeout(() => div.classList.add('aparecer'), 50);
+      listaComentarios.scrollTop = listaComentarios.scrollHeight;
+      carregados++;
+    });
+  }, 1000);
+});
 </script>
+</body>
