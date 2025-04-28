@@ -1,133 +1,38 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manual de Protección Masculina</title>
+<style>
+#progress-bar {
+  width: 0%;
+  height: 5px;
+  background-color: #385898;
+  transition: width 0.5s ease;
+}
+#progress-container {
+  width: 100%;
+  background-color: #ccc;
+  margin-top: 10px;
+  display: none;
+  position: relative;
+}
+#progress-text {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  font-size: 12px;
+  color: #333;
+}
+.comentario {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.comentario.aparecer {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
 
-  <!-- Pixel de Facebook -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1390516015451682');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1390516015451682&ev=PageView&noscript=1"/></noscript>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0a0a0a;
-      color: white;
-      text-align: center;
-    }
-    #video-container {
-      margin-top: 20px;
-    }
-    #botao {
-      display: none;
-      margin: 20px auto;
-      padding: 15px 30px;
-      background-color: red;
-      color: white;
-      font-size: 20px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-    #mensagem-topo {
-      margin-top: 10px;
-      font-size: 18px;
-      color: white;
-    }
-    #mensagem-abaixo-video {
-      margin-top: 10px;
-      font-size: 18px;
-      color: white;
-    }
-    #comentarios {
-      background-color: #1a1a1a;
-      color: white;
-      text-align: left;
-      padding: 20px;
-      margin-top: 200px;
-    }
-    .comentario {
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid #333;
-      padding: 10px 0;
-    }
-    .comentario img {
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      margin-right: 10px;
-    }
-    .comentario strong {
-      color: #4da6ff;
-    }
-    #ver-mais {
-      text-align: center;
-      color: #4da6ff;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-    #container-botao {
-      margin-top: 50px;
-      text-align: center;
-      margin-bottom: 50px;
-    }
-  </style>
-</head>
-<body>
-
-<div id="mensagem-topo">
-  <p><strong>429 personas están viendo esto ahora mismo.</strong></p>
-</div>
-
-<div id="video-container">
-  <div id="vid_680f32bc078611988a5d6c42" style="position: relative; width: 100%; padding: 56.25% 0 0;">
-    <img id="thumb_680f32bc078611988a5d6c42" src="https://images.converteai.net/77c3c791-40c3-44d2-9692-d4d9be5d2d42/players/680f32bc078611988a5d6c42/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail">
-    <div id="backdrop_680f32bc078611988a5d6c42" style="-webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%;"></div>
-  </div>
-  <script type="text/javascript" id="scr_680f32bc078611988a5d6c42">
-    var s=document.createElement("script");
-    s.src="https://scripts.converteai.net/77c3c791-40c3-44d2-9692-d4d9be5d2d42/players/680f32bc078611988a5d6c42/player.js", s.async=!0,document.head.appendChild(s);
-  </script>
-</div>
-
-<div id="mensagem-abaixo-video">
-  <p><strong>Tu video ya ha comenzado, sube el volumen 🔊</strong></p>
-</div>
-
-<div id="comentarios">
-  <div class="comentario"><img src="https://randomuser.me/api/portraits/men/1.jpg" alt="perfil"><div><strong>Juan Pérez</strong>: Estaba viviendo exactamente esto... ¡Gracias por abrirme los ojos!<br><small>Me gusta - Responder - Hace 2 horas</small></div></div>
-  <div class="comentario"><img src="https://randomuser.me/api/portraits/men/2.jpg" alt="perfil"><div><strong>Carlos Hernández</strong>: Brutal. Cada palabra tocó mi alma.<br><small>Me gusta - Responder - Hace 3 horas</small></div></div>
-  <div class="comentario"><img src="https://randomuser.me/api/portraits/men/3.jpg" alt="perfil"><div><strong>Mario García</strong>: No sabía que era tan común... gracias por compartir esta verdad.<br><small>Me gusta - Responder - Hace 4 horas</small></div></div>
-  <div class="comentario"><img src="https://randomuser.me/api/portraits/men/4.jpg" alt="perfil"><div><strong>Andrés López</strong>: Esto no tiene precio, ¡vale oro!<br><small>Me gusta - Responder - Hace 5 horas</small></div></div>
-  <div class="comentario"><img src="https://randomuser.me/api/portraits/men/5.jpg" alt="perfil"><div><strong>Pedro Sánchez</strong>: Exactamente lo que necesitaba escuchar.<br><small>Me gusta - Responder - Hace 6 horas</small></div></div>
-  <div class="comentario"><img src="https://randomuser.me/api/portraits/men/6.jpg" alt="perfil"><div><strong>Francisco Torres</strong>: Ya compartí este video con mi hermano.<br><small>Me gusta - Responder - Hace 7 horas</small></div></div>
-  <div class="comentario"><img src="https://randomuser.me/api/portraits/men/7.jpg" alt="perfil"><div><strong>Manuel Ramírez</strong>: Finalmente alguien diciendo las cosas como son.<br><small>Me gusta - Responder - Hace 8 horas</small></div></div>
-  <div class="comentario"><img src="https://randomuser.me/api/portraits/men/8.jpg" alt="perfil"><div><strong>José Medina</strong>: Cada segundo del video fue impactante.<br><small>Me gusta - Responder - Hace 9 horas</small></div></div>
-  <div class="comentario"><img src="https://randomuser.me/api/portraits/men/9.jpg" alt="perfil"><div><strong>Antonio Díaz</strong>: Siento que recuperé el control de mi vida.<br><small>Me gusta - Responder - Hace 10 horas</small></div></div>
-  <div class="comentario"><img src="https://randomuser.me/api/portraits/men/10.jpg" alt="perfil"><div><strong>Ricardo Cruz</strong>: Increíble, nunca había visto algo tan directo.<br><small>Me gusta - Responder - Hace 11 horas</small></div></div>
-  <div class="comentario"><img src="https://randomuser.me/api/portraits/men/11.jpg" alt="perfil"><div><strong>Victor Herrera</strong>: Gracias, ahora sé cómo protegerme.<br><small>Me gusta - Responder - Hace 12 horas</small></div></div>
-  <div class="comentario"><img src="https://randomuser.me/api/portraits/men/12.jpg" alt="perfil"><div><strong>Felipe Navarro</strong>: Este contenido simplemente cambió mi perspectiva.<br><small>Me gusta - Responder - Hace 13 horas</small></div></div>
-
-  <div id="ver-mais">Ver más comentarios</div>
-</div>
-
-<div id="container-botao">
-  <a id="botao" href="https://pay.hotmart.com/I99087923Q">ACCEDER AL MANUAL AHORA</a>
+<div id="progress-container">
+  <div id="progress-bar"></div>
+  <div id="progress-text">Cargando... 0%</div>
 </div>
 
 <script>
@@ -142,7 +47,97 @@
       botao.style.justifyContent = 'center';
     }
   }, 370000);
-</script>
 
-</body>
-</html>
+  function gerarTempo() {
+    const minutos = Math.floor(Math.random() * 59) + 1;
+    return minutos + ' minutos';
+  }
+
+  function gerarLikes() {
+    return Math.floor(Math.random() * 50) + 1;
+  }
+
+  function gerarReacao() {
+    const reacoes = ['❤️', '😲'];
+    return reacoes[Math.floor(Math.random() * reacoes.length)];
+  }
+
+  const comentariosFake = [...Array(30)].map((_, i) => ({
+    nome: `Usuario ${i + 1}`,
+    mensagem: `Comentario falso número ${i + 1}`,
+    img: `https://randomuser.me/api/portraits/men/${(i % 15) + 1}.jpg`
+  }));
+
+  const listaComentarios = document.getElementById('lista-comentarios');
+  const verMais = document.getElementById('ver-mais');
+  const loadingComentarios = document.getElementById('loading-comentarios');
+  const progressBar = document.getElementById('progress-bar');
+  const progressContainer = document.getElementById('progress-container');
+  const progressText = document.getElementById('progress-text');
+
+  function piscarLoading() {
+    loadingComentarios.style.opacity = loadingComentarios.style.opacity === '1' ? '0.5' : '1';
+  }
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  let blinkInterval;
+
+  verMais.addEventListener('click', function() {
+    loadingComentarios.style.display = 'block';
+    progressContainer.style.display = 'block';
+    progressBar.style.width = '0%';
+    progressText.innerText = 'Cargando... 0%';
+    blinkInterval = setInterval(piscarLoading, 500);
+
+    let progress = 0;
+    const progressInterval = setInterval(() => {
+      if (progress >= 100) {
+        clearInterval(progressInterval);
+      } else {
+        progress += 20;
+        progressBar.style.width = progress + '%';
+        progressText.innerText = 'Cargando... ' + progress + '%';
+      }
+    }, 200);
+
+    const comentariosEmbaralhados = shuffleArray([...comentariosFake]);
+    const lote = 5;
+    let carregados = 0;
+    const intervalo = setInterval(() => {
+      if (carregados >= comentariosFake.length) {
+        clearInterval(intervalo);
+        clearInterval(blinkInterval);
+        verMais.style.display = 'block';
+        loadingComentarios.style.display = 'none';
+        progressContainer.style.display = 'none';
+        return;
+      }
+      const subLote = shuffleArray([...comentariosFake]).slice(0, lote);
+      subLote.forEach(comentario => {
+        const div = document.createElement('div');
+        div.classList.add('comentario');
+        div.innerHTML = `<img src="${comentario.img}" alt="perfil">
+          <div>
+            <strong>${comentario.nome}</strong>: ${comentario.mensagem}
+            <br>
+            <small>
+              <span style='color:#385898; cursor:pointer;'>${gerarReacao()} ${gerarLikes()}</span> - 
+              <span style='color:#385898; cursor:pointer;'>Responder</span> - 
+              Hace ${gerarTempo()}
+            </small>
+          </div>`;
+        listaComentarios.appendChild(div);
+        setTimeout(() => div.classList.add('aparecer'), 50);
+        listaComentarios.scrollTop = listaComentarios.scrollHeight;
+        carregados++;
+      });
+    }, 1000);
+  });
+</script>
