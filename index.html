@@ -87,6 +87,24 @@ function shuffleArray(array) {
   return array;
 }
 
+function carregarComentariosInicial() {
+  const comentariosIniciais = shuffleArray([...comentariosFake]).slice(0, 5);
+  comentariosIniciais.forEach(comentario => {
+    const div = document.createElement('div');
+    div.classList.add('comentario');
+    div.style.borderLeft = '4px solid #385898';
+    div.style.opacity = '0';
+    div.style.transform = 'translateY(20px)';
+    div.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    div.innerHTML = `<img src="${comentario.img}" alt="perfil" style="border-radius:50%; width:40px; height:40px; margin-right:10px; vertical-align:middle;"> <div style="display:inline-block; vertical-align:middle;"><strong>${comentario.nome}</strong>: ${comentario.mensagem}<br><small><span style='color:#385898; cursor:pointer;'>${gerarReacao()} ${gerarLikes()}</span> - <span style='color:#385898; cursor:pointer;'>Responder</span> - Hace ${gerarTempo()}</small></div>`;
+    listaComentarios.appendChild(div);
+    setTimeout(() => div.style.opacity = '1', 50);
+    setTimeout(() => div.style.transform = 'translateY(0)', 50);
+  });
+}
+
+carregarComentariosInicial();
+
 verMais.addEventListener('click', function() {
   loadingComentarios.style.display = 'block';
   progressBar.style.width = '0%';
@@ -118,9 +136,13 @@ verMais.addEventListener('click', function() {
       const div = document.createElement('div');
       div.classList.add('comentario');
       div.style.borderLeft = '4px solid #385898';
+      div.style.opacity = '0';
+      div.style.transform = 'translateY(20px)';
+      div.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
       div.innerHTML = `<img src="${comentario.img}" alt="perfil" style="border-radius:50%; width:40px; height:40px; margin-right:10px; vertical-align:middle;"> <div style="display:inline-block; vertical-align:middle;"><strong>${comentario.nome}</strong>: ${comentario.mensagem}<br><small><span style='color:#385898; cursor:pointer;'>${gerarReacao()} ${gerarLikes()}</span> - <span style='color:#385898; cursor:pointer;'>Responder</span> - Hace ${gerarTempo()}</small></div>`;
       listaComentarios.appendChild(div);
-      setTimeout(() => div.classList.add('aparecer'), 50);
+      setTimeout(() => div.style.opacity = '1', 50);
+      setTimeout(() => div.style.transform = 'translateY(0)', 50);
       listaComentarios.scrollTop = listaComentarios.scrollHeight;
       carregados++;
     });
