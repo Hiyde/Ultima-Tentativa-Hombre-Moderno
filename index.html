@@ -17,10 +17,60 @@
   src="https://www.facebook.com/tr?id=1390516015451682&ev=PageView&noscript=1"/>
 </noscript>
 <!-- End Meta Pixel Code -->
+<style>
+  body {
+    background: black;
+    color: white;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  #player-section {
+    text-align: center;
+    margin-top: 20px;
+  }
+  #comentarios-section {
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin: 20px;
+  }
+  #ver-mais {
+    background-color: #385898;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .comentario {
+    border-left: 4px solid #385898;
+    padding-left: 10px;
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  @media (max-width: 600px) {
+    body {
+      font-size: 16px;
+    }
+    #comentarios-section {
+      margin: 10px;
+      padding: 10px;
+    }
+    #ver-mais {
+      width: 100%;
+    }
+  }
+</style>
 </head>
 
-<body style="background: black; color: white; margin: 0; font-family: Arial, sans-serif;">
-<div id="player-section" style="text-align: center; margin-top: 20px;">
+<body>
+<div id="player-section">
   <div id="vid_680f32bc078611988a5d6c42" style="position: relative; width: 100%; padding: 56.25% 0 0;">
     <img id="thumb_680f32bc078611988a5d6c42" src="https://images.converteai.net/77c3c791-40c3-44d2-9692-d4d9be5d2d42/players/680f32bc078611988a5d6c42/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail">
     <div id="backdrop_680f32bc078611988a5d6c42" style="-webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%;"></div>
@@ -39,10 +89,10 @@
   <div id="progress-text" style="position: absolute; top: -20px; right: 0; font-size: 12px; color: #333;">Cargando... 0%</div>
 </div>
 
-<div id="comentarios-section" style="background: white; color: black; padding: 20px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); margin: 20px;">
+<div id="comentarios-section">
   <div id="lista-comentarios"></div>
   <div id="loading-comentarios" style="display:none;">Cargando más comentarios...</div>
-  <button id="ver-mais" style="background-color: #385898; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 14px; margin-top: 10px;">Ver más comentarios</button>
+  <button id="ver-mais">Ver más comentarios</button>
 </div>
 
 <script>
@@ -79,24 +129,11 @@ function gerarReacao() {
   return reacoes[Math.floor(Math.random() * reacoes.length)];
 }
 
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
-
 function carregarComentariosInicial() {
-  const comentariosIniciais = shuffleArray([...comentariosFake]).slice(0, 5);
-  comentariosIniciais.forEach(comentario => {
+  comentariosFake.forEach(comentario => {
     const div = document.createElement('div');
     div.classList.add('comentario');
-    div.style.borderLeft = '4px solid #385898';
-    div.style.opacity = '0';
-    div.style.transform = 'translateY(20px)';
-    div.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    div.innerHTML = `<img src="${comentario.img}" alt="perfil" style="border-radius:50%; width:40px; height:40px; margin-right:10px; vertical-align:middle;"> <div style="display:inline-block; vertical-align:middle;"><strong>${comentario.nome}</strong>: ${comentario.mensagem}<br><small><span style='color:#385898; cursor:pointer;'>${gerarReacao()} ${gerarLikes()}</span> - <span style='color:#385898; cursor:pointer;'>Responder</span> - Hace ${gerarTempo()}</small></div>`;
+    div.innerHTML = `<img src="${comentario.img}" alt="perfil" style="border-radius:50%; width:40px; height:40px; margin-right:10px; vertical-align:middle;"><div style="display:inline-block; vertical-align:middle;"><strong>${comentario.nome}</strong>: ${comentario.mensagem}<br><small><span style='color:#385898; cursor:pointer;'>${gerarReacao()} ${gerarLikes()}</span> - <span style='color:#385898; cursor:pointer;'>Responder</span> - Hace ${gerarTempo()}</small></div>`;
     listaComentarios.appendChild(div);
     setTimeout(() => div.style.opacity = '1', 50);
     setTimeout(() => div.style.transform = 'translateY(0)', 50);
@@ -104,49 +141,5 @@ function carregarComentariosInicial() {
 }
 
 carregarComentariosInicial();
-
-verMais.addEventListener('click', function() {
-  loadingComentarios.style.display = 'block';
-  progressBar.style.width = '0%';
-  progressText.innerText = 'Cargando... 0%';
-  document.getElementById('progress-container').style.display = 'block';
-
-  let progress = 0;
-  const progressInterval = setInterval(() => {
-    if (progress >= 100) {
-      clearInterval(progressInterval);
-    } else {
-      progress += 20;
-      progressBar.style.width = progress + '%';
-      progressText.innerText = 'Cargando... ' + progress + '%';
-    }
-  }, 200);
-
-  const comentariosEmbaralhados = shuffleArray([...comentariosFake]);
-  let carregados = 0;
-  const intervalo = setInterval(() => {
-    if (carregados >= comentariosFake.length) {
-      clearInterval(intervalo);
-      document.getElementById('progress-container').style.display = 'none';
-      loadingComentarios.style.display = 'none';
-      return;
-    }
-    const subLote = shuffleArray([...comentariosFake]).slice(0, 5);
-    subLote.forEach(comentario => {
-      const div = document.createElement('div');
-      div.classList.add('comentario');
-      div.style.borderLeft = '4px solid #385898';
-      div.style.opacity = '0';
-      div.style.transform = 'translateY(20px)';
-      div.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-      div.innerHTML = `<img src="${comentario.img}" alt="perfil" style="border-radius:50%; width:40px; height:40px; margin-right:10px; vertical-align:middle;"> <div style="display:inline-block; vertical-align:middle;"><strong>${comentario.nome}</strong>: ${comentario.mensagem}<br><small><span style='color:#385898; cursor:pointer;'>${gerarReacao()} ${gerarLikes()}</span> - <span style='color:#385898; cursor:pointer;'>Responder</span> - Hace ${gerarTempo()}</small></div>`;
-      listaComentarios.appendChild(div);
-      setTimeout(() => div.style.opacity = '1', 50);
-      setTimeout(() => div.style.transform = 'translateY(0)', 50);
-      listaComentarios.scrollTop = listaComentarios.scrollHeight;
-      carregados++;
-    });
-  }, 1000);
-});
 </script>
 </body>
