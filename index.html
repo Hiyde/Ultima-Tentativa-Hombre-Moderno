@@ -25,7 +25,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(black, red);
+      background: #0a0a0a;
       color: white;
       text-align: center;
     }
@@ -54,8 +54,8 @@
       color: white;
     }
     #comentarios {
-      background-color: white;
-      color: black;
+      background-color: #1a1a1a;
+      color: white;
       text-align: left;
       padding: 20px;
       margin-top: 200px;
@@ -63,7 +63,7 @@
     .comentario {
       display: flex;
       align-items: center;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid #333;
       padding: 10px 0;
     }
     .comentario img {
@@ -73,11 +73,11 @@
       margin-right: 10px;
     }
     .comentario strong {
-      color: #365899;
+      color: #4da6ff;
     }
     #ver-mais {
       text-align: center;
-      color: #365899;
+      color: #4da6ff;
       font-weight: bold;
       margin-top: 10px;
     }
@@ -133,10 +133,15 @@
 <script>
   setTimeout(function() {
     var botao = document.getElementById('botao');
-    botao.style.display = 'inline-block';
-    botao.style.visibility = 'visible';
-    botao.style.opacity = '1';
-  }, 370000); // 360 segundos + 10 segundos de margem de erro
+    if (botao) {
+      botao.style.display = 'flex';
+      botao.style.visibility = 'visible';
+      botao.style.opacity = '1';
+      botao.style.position = 'relative';
+      botao.style.zIndex = '9999';
+      botao.style.justifyContent = 'center';
+    }
+  }, 370000);
 </script>
 
 </body>
