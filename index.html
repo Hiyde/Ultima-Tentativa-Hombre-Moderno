@@ -131,17 +131,12 @@
 </div>
 
 <script>
-  window.addEventListener("message", function(event) {
-    if (typeof event.data === "object" && event.data.event === "timeupdate") {
-      var currentTime = event.data.currentTime;
-      if (currentTime >= 360) {
-        var botao = document.getElementById('botao');
-        botao.style.display = 'inline-block';
-        botao.style.visibility = 'visible';
-        botao.style.opacity = '1';
-      }
-    }
-  });
+  setTimeout(function() {
+    var botao = document.getElementById('botao');
+    botao.style.display = 'inline-block';
+    botao.style.visibility = 'visible';
+    botao.style.opacity = '1';
+  }, 370000); // 360 segundos + 10 segundos de margem de erro
 </script>
 
 </body>
