@@ -1,9 +1,35 @@
+<head>
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1390516015451682');
+  fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1390516015451682&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
+</head>
+
 <style>
 body {
   background: black;
   color: white;
   margin: 0;
   font-family: Arial, sans-serif;
+}
+
+#player-section {
+  text-align: center;
+  margin-top: 20px;
 }
 
 #comentarios-section {
@@ -64,6 +90,20 @@ body {
   background-color: #2c4a8a;
 }
 </style>
+
+<div id="player-section">
+  <div id="vid_680f32bc078611988a5d6c42" style="position: relative; width: 100%; padding: 56.25% 0 0;">
+    <img id="thumb_680f32bc078611988a5d6c42" src="https://images.converteai.net/77c3c791-40c3-44d2-9692-d4d9be5d2d42/players/680f32bc078611988a5d6c42/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail">
+    <div id="backdrop_680f32bc078611988a5d6c42" style="-webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%;"></div>
+  </div>
+  <script type="text/javascript" id="scr_680f32bc078611988a5d6c42">
+    var s = document.createElement("script");
+    s.src = "https://scripts.converteai.net/77c3c791-40c3-44d2-9692-d4d9be5d2d42/players/680f32bc078611988a5d6c42/player.js";
+    s.async = true;
+    document.head.appendChild(s);
+  </script>
+  <h2 style="margin-top: 20px;">🔊 ¡Sube el volumen para escuchar!</h2>
+</div>
 
 <div id="progress-container">
   <div id="progress-bar"></div>
