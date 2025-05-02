@@ -1,145 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<!-- Meta Pixel Code -->
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1390516015451682');
-  fbq('track', 'PageView');
-</script>
-<noscript>
-  <img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1390516015451682&ev=PageView&noscript=1"/>
-</noscript>
-<!-- End Meta Pixel Code -->
-<style>
-  body {
-    background: black;
-    color: white;
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  #player-section {
-    text-align: center;
-    margin-top: 20px;
-  }
-  #comentarios-section {
-    background: white;
-    color: black;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    margin: 20px;
-  }
-  #ver-mais {
-    background-color: #385898;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
-    margin-top: 10px;
-  }
-  .comentario {
-    border-left: 4px solid #385898;
-    padding-left: 10px;
-    margin-bottom: 15px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-  @media (max-width: 600px) {
-    body {
-      font-size: 16px;
-    }
-    #comentarios-section {
-      margin: 10px;
-      padding: 10px;
-    }
-    #ver-mais {
-      width: 100%;
-    }
-  }
-</style>
-</head>
-
-<body>
-<div id="player-section">
-  <div id="vid_680f32bc078611988a5d6c42" style="position: relative; width: 100%; padding: 56.25% 0 0;">
-    <img id="thumb_680f32bc078611988a5d6c42" src="https://images.converteai.net/77c3c791-40c3-44d2-9692-d4d9be5d2d42/players/680f32bc078611988a5d6c42/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail">
-    <div id="backdrop_680f32bc078611988a5d6c42" style="-webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%;"></div>
-  </div>
-  <script type="text/javascript" id="scr_680f32bc078611988a5d6c42">
-    var s = document.createElement("script");
-    s.src = "https://scripts.converteai.net/77c3c791-40c3-44d2-9692-d4d9be5d2d42/players/680f32bc078611988a5d6c42/player.js";
-    s.async = true;
-    document.head.appendChild(s);
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1390516015451682');
+    fbq('track', 'PageView');
   </script>
-  <h2 style="margin-top: 20px;">🔊 ¡Sube el volumen para escuchar!</h2>
-</div>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID_HERE&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+  <!-- Hotmart Pixel: PageView -->
+  <script>
+    (function() {
+      var hm = document.createElement('script'); hm.type = 'text/javascript'; hm.async = true;
+      hm.src = 'https://static.hotmart.com/scripts/hotmart.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <script>
+    hotmart('track', 'PageView');
+  </script>
 
-<div id="progress-container" style="width: 100%; background-color: #ccc; margin-top: 10px; display: none; position: relative;">
-  <div id="progress-bar" style="width: 0%; height: 5px; background-color: #385898; transition: width 0.5s ease;"></div>
-  <div id="progress-text" style="position: absolute; top: -20px; right: 0; font-size: 12px; color: #333;">Cargando... 0%</div>
-</div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pasteles Sin Gluten - Página Oficial</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #5e2b97;
+      color: #fff;
+    }
+    header {
+      padding: 3rem 1rem;
+      text-align: center;
+      background-color: #4a207a;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: #ffd700;
+    }
+    header p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #fff6d5;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+    .columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center;
+    }
+    .column {
+      flex: 1 1 45%;
+      min-width: 300px;
+    }
+    .column img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    h2 {
+      color: #ffd700;
+      margin-top: 0;
+    }
+    .cta {
+      text-align: center;
+      margin: 3rem 0;
+    }
+    .cta a {
+      background-color: #ffd700;
+      color: #4a207a;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .faq {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    .faq-item {
+      background-color: #6f3ca7;
+      padding: 1.5rem;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 350px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      border: 2px solid transparent;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .faq-item:hover {
+      border-color: #ffd700;
+      transform: scale(1.03);
+    }
+    .faq-item h3 {
+      margin-top: 0;
+      color: #ffd700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .faq-item h3::before {
+      content: url('https://cdn-icons-png.flaticon.com/512/545/545705.png');
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+    }
+    .testimonios {
+      background-color: #6f3ca7;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    .testimonios h2 {
+      color: #ffffff;
+    }
+    .testimonio {
+      max-width: 700px;
+      margin: 1rem auto;
+      font-style: italic;
+    }
+    .testimonio strong {
+      display: block;
+      margin-top: 0.5rem;
+      color: #ffd700;
+    }
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .columns {
+        flex-direction: column;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Pasteles simples, esponjosos y deliciosos</h1>
+    <p>Recetas saludables y deliciosas para todos los que aman los pasteles</p>
+  </header>
 
-<div id="comentarios-section">
-  <div id="lista-comentarios"></div>
-  <div id="loading-comentarios" style="display:none;">Cargando más comentarios...</div>
-  <button id="ver-mais">Ver más comentarios</button>
-</div>
+  <div class="container columns">
+    <div class="column">
+      $1
+      <div class="cta" style="margin-top: 1.5rem;">
+        <a href="https://pay.hotmart.com/R99524731M?off=keqmg176&checkoutMode=10" style="background-color: #3ccf4e; color: #fff; padding: 1rem 2rem; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.2rem; display: inline-block;">Agregar al carrito mis recetas</a>
+      </div>
+    </div>
+    <div class="column">
+      <h2>¿Qué vas a encontrar en este recetario?</h2>
+      <ul>
+        <li>20 recetas fáciles, deliciosas y 100% sin gluten</li>
+        <li>Ingredientes simples y accesibles</li>
+        <li>Instrucciones claras y fotos reales</li>
+        <li>Ideal para vender, regalar o disfrutar en casa</li>
+      </ul>
+    </div>
+  </div>
 
-<script>
-const listaComentarios = document.getElementById('lista-comentarios');
-const verMais = document.getElementById('ver-mais');
-const loadingComentarios = document.getElementById('loading-comentarios');
-const progressBar = document.getElementById('progress-bar');
-const progressText = document.getElementById('progress-text');
+  <div class="container">
+    <h2>Hecho para todos</h2>
+    <p>No necesitas ser chef ni celíaco. Este recetario es para cualquier persona que quiera comer bien y sentirse mejor.</p>
+  </div>
 
-const comentariosFake = [
-  { nome: 'Alejandro Torres', mensagem: 'Este video me abrió los ojos, ¡gracias!', img: 'https://randomuser.me/api/portraits/men/1.jpg' },
-  { nome: 'Juan García', mensagem: 'Esto me pasó y no sabía cómo salir de esa situación...', img: 'https://randomuser.me/api/portraits/men/2.jpg' },
-  { nome: 'Carlos Mendoza', mensagem: 'Excelente contenido, compartido en mis grupos.', img: 'https://randomuser.me/api/portraits/men/3.jpg' },
-  { nome: 'Fernando López', mensagem: '¡Muy fuerte, necesitaba escuchar esto!', img: 'https://randomuser.me/api/portraits/men/4.jpg' },
-  { nome: 'Luis Ramírez', mensagem: 'Gracias por abrirme los ojos, hermano.', img: 'https://randomuser.me/api/portraits/men/5.jpg' },
-  { nome: 'Pedro Alvarez', mensagem: 'Nunca había visto una explicación tan clara.', img: 'https://randomuser.me/api/portraits/men/6.jpg' },
-  { nome: 'Miguel Castillo', mensagem: 'Totalmente identificado. Gracias por este material.', img: 'https://randomuser.me/api/portraits/men/7.jpg' },
-  { nome: 'Santiago Pérez', mensagem: 'Esto debería ser obligatorio para todos los hombres.', img: 'https://randomuser.me/api/portraits/men/8.jpg' },
-  { nome: 'Andrés Morales', mensagem: 'Ya compartí este video con todos mis amigos.', img: 'https://randomuser.me/api/portraits/men/9.jpg' },
-  { nome: 'Diego Fernández', mensagem: '¡Brutal! Justo lo que necesitaba.', img: 'https://randomuser.me/api/portraits/men/10.jpg' },
-];
+  <div class="cta">
+    <a href="#">Descargar ahora</a>
+  </div>
 
-function gerarTempo() {
-  const minutos = Math.floor(Math.random() * 59) + 1;
-  return minutos + ' minutos';
-}
+  <div class="container">
+    <div class="faq">
+      <div class="faq-item">
+        <h3>¿Cómo voy a recibir mi acceso?</h3>
+        <p>Recibirás tu acceso directamente en tu correo electrónico, de forma rápida, simple y segura.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿El pastel realmente queda rico y esponjoso?</h3>
+        <p>¡Sí! Creado por una especialista en intolerancias, nuestras recetas garantizan pasteles suaves y deliciosos, comparables con los tradicionales.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Necesito ingredientes caros o difíciles?</h3>
+        <p>¡No! Usamos ingredientes básicos que probablemente ya tienes en tu cocina. Nada de productos costosos o raros.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Estas recetas son costosas?</h3>
+        <p>En absoluto. Pensamos en tu bolsillo al seleccionar recetas económicas pero deliciosas.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Necesito experiencia en la cocina?</h3>
+        <p>¡Para nada! Las recetas fueron pensadas para todos los niveles, con instrucciones claras y paso a paso muy sencillo.</p>
+      </div>
+    </div>
+  </div>
 
-function gerarLikes() {
-  return Math.floor(Math.random() * 50) + 1;
-}
-
-function gerarReacao() {
-  const reacoes = ['❤️', '😲'];
-  return reacoes[Math.floor(Math.random() * reacoes.length)];
-}
-
-function carregarComentariosInicial() {
-  comentariosFake.forEach(comentario => {
-    const div = document.createElement('div');
-    div.classList.add('comentario');
-    div.innerHTML = `<img src="${comentario.img}" alt="perfil" style="border-radius:50%; width:40px; height:40px; margin-right:10px; vertical-align:middle;"><div style="display:inline-block; vertical-align:middle;"><strong>${comentario.nome}</strong>: ${comentario.mensagem}<br><small><span style='color:#385898; cursor:pointer;'>${gerarReacao()} ${gerarLikes()}</span> - <span style='color:#385898; cursor:pointer;'>Responder</span> - Hace ${gerarTempo()}</small></div>`;
-    listaComentarios.appendChild(div);
-    setTimeout(() => div.style.opacity = '1', 50);
-    setTimeout(() => div.style.transform = 'translateY(0)', 50);
-  });
-}
-
-carregarComentariosInicial();
-</script>
-</body>
+  <div class="testimonios">
+    <h2>Lo que dicen nuestros lectores:</h2>
+    <div class="testimonio">
+      "Nunca imaginé que podría hornear algo tan delicioso sin usar harina de trigo. Mi familia no notó la diferencia, y eso lo dice todo."
+      <strong>- Mariana R. (Colombia)</strong>
+    </div>
+    <div class="testimonio">
+      "Perfecto para mis ventas desde casa. Los clientes adoran los pasteles de avena y zanahoria. ¡Gracias por este recetario!"
+      <strong>- Jorge L. (México)</strong>
+    </div>
+    <div class="testimonio">
+      "Sufro de intolerancia al gluten y este libro fue un salvavidas. Las recetas son claras y deliciosas."
+      <strong>- Laura M. (Chile)</strong>
+    </div>
+  </div>
